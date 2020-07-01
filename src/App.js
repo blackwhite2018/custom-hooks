@@ -1,12 +1,17 @@
 import React from 'react';
-import useJsonFetch from './hooks/useJsonFetch';
+import useStorage from './hooks/useStorage';
 
 const App = () => {
-  const [data, loading, error] = useJsonFetch('http://localhost:7070/data');
-  console.log(data, loading, error);
+  const [value, setValue] = useStorage(localStorage, 'test');
+
+  const handleChange = evt => {
+    setValue(evt.target.value);
+  };
 
   return (
-    <div>1</div>
+    <div>
+      <input type="text" onChange={ handleChange } value={ value } />
+    </div>
   );
 };
 

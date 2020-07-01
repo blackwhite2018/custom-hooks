@@ -12,16 +12,37 @@
 
 ## Implemented hooks
 
-<ul class="realize">
-    <p>Realize:</p>
-    <li>useJsonFetch - hook fetch requests in json format</li>
-</ul>
+* useJsonFetch - hook fetch requests in json format
+* useStorage - local/session storage hook
 
-## TODO
 
-<ul class="todo">
-    <p>TODO:</p>
-    <li>useStorage - local storage hook</li>
-</ul>
+## Instruction
+
+### useJsonFetch
+
+Hook for sending a request and receiving a response in json format.
+
+```javascript
+    const [data, loading, error] = useJsonFetch(url, options);
+```
+
+`data` - received data
+`loading` - data load flag
+`error` - `null` if there is no error, otherwise the error object
+
+`url` - address to send the request to
+`options` - query parameters, optional parameter
+
+### useStorage
+
+A hook for working with local/session storage.
+
+```javascript
+    const [value, setValue] = useStorage(Storage, key, isJsonify);
+```
+
+`Storage` - local/session storage
+`key` - key
+`isJsonify` - the key is whether to realize the transmitted data or not. The default is false.
 
 
